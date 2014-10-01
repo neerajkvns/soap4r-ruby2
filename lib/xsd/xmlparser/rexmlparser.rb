@@ -24,7 +24,8 @@ class REXMLParser < XSD::XMLParser::Parser
     source.encoding = charset if charset
     # Listener passes a String in utf-8.
     @charset = 'utf-8'
-    REXML::Document.parse_stream(source, self)
+    # TODO fix encoding setup
+    REXML::Document.parse_stream(string_or_readable, self)
   end
 
   def epilogue
